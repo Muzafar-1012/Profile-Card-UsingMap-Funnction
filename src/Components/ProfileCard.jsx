@@ -1,5 +1,6 @@
 import "./ProfileCard.css";
 
+
 function ProfileCard({
   name,
   profession,
