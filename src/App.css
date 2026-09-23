@@ -1,0 +1,141 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0f172a;
+  color: #111827;
+  overflow-x: hidden;
+}
+
+/* Main Background */
+.app {
+  width: 100%;
+  min-height: 100vh;
+  padding: 50px 40px;
+
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(280px, 1fr)
+  );
+
+  gap: 35px;
+  justify-items: center;
+
+  position: relative;
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 10% 20%,
+      rgba(37, 99, 235, 0.25),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 90% 80%,
+      rgba(124, 58, 237, 0.25),
+      transparent 30%
+    ),
+    linear-gradient(
+      135deg,
+      #0f172a,
+      #111827,
+      #172554
+    );
+}
+
+/* Animated Glow 1 */
+.app::before {
+  content: "";
+  position: absolute;
+
+  width: 350px;
+  height: 350px;
+
+  top: -120px;
+  left: -100px;
+
+  background: rgba(37, 99, 235, 0.25);
+  border-radius: 50%;
+
+  filter: blur(80px);
+
+  animation: floatingGlow 8s ease-in-out infinite;
+}
+
+/* Animated Glow 2 */
+.app::after {
+  content: "";
+  position: absolute;
+
+  width: 350px;
+  height: 350px;
+
+  right: -100px;
+  bottom: -100px;
+
+  background: rgba(124, 58, 237, 0.25);
+  border-radius: 50%;
+
+  filter: blur(80px);
+
+  animation: floatingGlow2 10s ease-in-out infinite;
+}
+
+/* Keep Cards Above Background */
+.profile-card {
+  z-index: 2;
+}
+
+/* Glow Animation */
+@keyframes floatingGlow {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(120px, 100px);
+  }
+
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes floatingGlow2 {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(-100px, -80px);
+  }
+
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .app {
+    padding: 35px 25px;
+    gap: 25px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .app {
+    padding: 25px 15px;
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+}
