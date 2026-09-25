@@ -120,13 +120,7 @@ function MainSection() {
         return (
           <ProfileCard
             key={index}
-            name={value.name}
-            profession={value.profession}
-            company={value.company}
-            price={value.price}
-            image={value.image}
-            skills={value.skills}
-            description={value.description}
+          {...value}
           />
         );
       })}
